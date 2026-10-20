@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id" data-theme="dark" data-style="default"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="theme-color" content="#0a1430"><meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Zippy">
+<meta name="description" content="Zippy — Swipe. Play. Repeat. Video pendek, story, audio, dan pesan.">
+<title>Zippy — Swipe. Play. Repeat.</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css?v=2.9.0"><link rel="stylesheet" href="css/themes.css?v=2.9.0">
+</head><body>
+<div id="app">
+  <!-- 4 Halaman Tab Utama yang Terpisah (Anti Numpuk) -->
+  <div id="home-pg" class="pg home-pg open">
+    <div id="top"></div>
+    <div id="ptr" class="ptr" aria-hidden="true"><span class="ptr-spin"></span><small id="ptr-txt">Tarik untuk menyegarkan</small></div>
+    <main id="feed"></main>
+  </div>
+  <div id="inbox" class="pg"></div>
+  <div id="notif" class="pg"></div>
+  <div id="myprof" class="pg prof" data-tab="1"></div>
+
+  <!-- Lapisan Overlay Sub-Halaman -->
+  <div id="vw" class="ov dark"></div>
+  <div id="aud" class="ov"></div>
+  <div id="fl" class="ov"></div>
+  <div id="sr" class="ov"></div>
+  <div id="chat" class="ov"></div>
+  <div id="set" class="ov"></div>
+  <div id="up" class="ov"></div>
+  <div id="edit" class="ov"></div>
+  <div id="sc" class="ov"></div>
+  <div id="hl" class="ov"></div>
+  <div id="sv" class="ov dark"></div>
+  <div id="crop" class="ov"></div>
+  <div id="ve" class="ov dark"></div>
+  <div id="iv" class="ov dark" data-over="1"></div>
+
+  <div id="sheet" class="sheet"></div><div id="shade" class="shade"></div>
+  <div id="hb"></div><div id="ib" class="ibn"></div><div id="toast" role="status"></div>
+  <nav></nav>
+</div>
+<noscript><p style="padding:24px;color:#fff">Zippy membutuhkan JavaScript.</p></noscript>
+<script src="config.js?v=2.9.0"></script>
+<script src="js/icons.js?v=2.9.0"></script>
+<script src="js/core.js?v=2.9.0"></script>
+<script src="js/beranda.js?v=2.9.0"></script>
+<script src="js/audio.js?v=2.9.0"></script>
+<script src="js/profile.js?v=2.9.0"></script>
+<script src="js/search.js?v=2.9.0"></script>
+<script src="js/story.js?v=2.9.0"></script>
+<script src="js/editor.js?v=2.9.0"></script>
+<script src="js/post.js?v=2.9.0"></script>
+<script src="js/pesan.js?v=2.9.0"></script>
+<script src="js/notif.js?v=2.9.0"></script>
+<script src="js/settings.js?v=2.9.0"></script>
+<script src="js/boot.js?v=2.9.0"></script>
+</body></html>

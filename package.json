@@ -1,0 +1,24 @@
+{
+  "name": "zippy",
+  "version": "2.9.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "apk:init": "npm i -D @capacitor/core @capacitor/cli @capacitor/android && npx cap add android",
+    "apk:sync": "npx cap sync android",
+    "apk:open": "npx cap open android"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.0"
+  },
+  "optionalDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}

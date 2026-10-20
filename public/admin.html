@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="id" data-theme="dark" data-style="default"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Zippy Sistem Center — Swipe. Play. Repeat.</title>
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/themes.css?v=2.9.0">
+<style>
+/* ============================================================
+   Zippy Sistem Center v2.9.0 — Mudah Dikontrol, Tanpa Login
+   Tagline: Swipe. Play. Repeat.
+   ============================================================ */
+:root{
+  --bg:#f4f8ff;--sf:#ffffff;--sf2:#e6efff;--ln:#e0e8f6;--tx:#0b1b46;--mu:#5b6b8c;
+  --ac:#2563eb;--ac2:#60a5fa;--on:#ffffff;--nav:#ffffff;--page:var(--bg);
+  --dng:#ef4444;--gold:#f59e0b;--heart:#ff3b5c;--ok:#16a34a;
+  --fnt:'Plus Jakarta Sans',Roboto,system-ui,-apple-system,sans-serif;
+}
+[data-theme=dark]{
+  --bg:#0a1430;--sf:#111f45;--sf2:#1b2d5e;--ln:#22356b;--tx:#eef3ff;--mu:#93a4d0;
+  --ac:#3b82f6;--ac2:#60a5fa;--nav:#0d1938;--page:var(--bg);
+}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{
+  position:static!important;
+  width:100%;
+  height:auto!important;
+  min-height:100%;
+  overflow-x:hidden!important;
+  overflow-y:scroll!important;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-y:auto!important;
+}
+body{
+  position:relative!important;
+  width:100%;
+  height:auto!important;
+  min-height:100dvh;
+  overflow:visible!important;
+  background:var(--page)!important;
+  color:var(--tx);
+  font:15px/1.45 var(--fnt);
+  touch-action:pan-y!important;
+  overscroll-behavior-y:auto!important;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;transition:transform .12s,background .2s,opacity .2s}
+button:active{transform:scale(.97)}
+button:disabled{opacity:.55;pointer-events:none}
+input,textarea,select{
+  font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--ln);
+  border-radius:14px;padding:11px 14px;width:100%;outline:0;transition:border-color .2s,box-shadow .2s;resize:vertical;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 18%,transparent)}
+label{display:block;color:var(--mu);font-size:13px;font-weight:600}
+a{color:inherit}
+h1,h2,h3,h4{letter-spacing:-.02em;font-weight:800;color:var(--tx)}
+.mu{color:var(--mu)}
+.col{display:grid;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:12px 18px;border-radius:16px;
+  background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;
+  font-weight:800;font-size:14px;box-shadow:0 10px 24px -10px color-mix(in srgb,var(--ac) 70%,transparent);
+}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic .d{fill:currentColor;fill-opacity:.17;stroke:none}
+.ic.f .d{fill-opacity:1}.ic.f{stroke-width:1.6}
+.ic.s{width:15px;height:15px;vertical-align:-2.5px}
+.ic.b3{stroke-width:2.8}
+.logo{display:block;filter:drop-shadow(0 4px 8px color-mix(in srgb,var(--ac) 40%,transparent))}
+
+/* ---------- Dasbor Sistem ---------- */
+.adm-shell{min-height:100dvh;padding-bottom:80px}
+.adm-nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--ln);padding:12px 16px}
+.adm-nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.adm-brand{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.adm-brand h1{font-size:18.5px;display:flex;align-items:center;gap:8px}
+.adm-tagline{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:99px;background:color-mix(in srgb,var(--ac) 14%,var(--sf2));color:var(--ac)}
+.adm-status{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--ok) 16%,var(--sf2));color:var(--ok);display:inline-flex;align-items:center;gap:5px}
+.adm-status i{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block}
+.adm-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.adm-pill{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:999px;background:var(--sf);border:1px solid var(--ln);font-weight:700;font-size:12.5px;color:var(--tx);text-decoration:none;cursor:pointer}
+.adm-pill:active{background:var(--sf2)}
+.adm-pill.ac{background:var(--ac);color:#fff;border-color:transparent}
+
+.adm-wrap{max-width:1100px;margin:0 auto;padding:16px 14px 60px}
+
+/* ---------- Panel Kontrol Cepat Satu Klik ---------- */
+.quick-bar{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 14%,var(--sf)),var(--sf));border:1.5px solid color-mix(in srgb,var(--ac) 32%,var(--ln));border-radius:20px;padding:14px 16px;margin-bottom:14px;display:grid;gap:10px}
+.quick-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.quick-top h2{font-size:15.5px;display:flex;align-items:center;gap:7px}
+.quick-btns{display:flex;gap:8px;flex-wrap:wrap}
+.qbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:12px;background:var(--bg);border:1px solid var(--ln);font-weight:700;font-size:12.5px;color:var(--tx);cursor:pointer;transition:border-color .15s,background .15s}
+.qbtn:hover{border-color:var(--ac)}
+.qbtn.pri{background:var(--ac);color:#fff;border-color:transparent}
+.qbtn.ok{background:color-mix(in srgb,var(--ok) 15%,var(--bg));color:var(--ok);border-color:color-mix(in srgb,var(--ok) 35%,var(--ln))}
+.qbtn.warn{background:color-mix(in srgb,var(--gold) 15%,var(--bg));color:var(--gold);border-color:color-mix(in srgb,var(--gold) 35%,var(--ln))}
+
+.adm-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.adm-stat{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:12px;display:flex;align-items:center;gap:10px;text-align:left;cursor:pointer;transition:transform .15s,border-color .2s}
+.adm-stat:hover,.adm-stat.active{border-color:var(--ac);box-shadow:0 6px 18px -8px color-mix(in srgb,var(--ac) 45%,transparent)}
+.adm-stat-ic{width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--ac) 14%,var(--sf2));color:var(--ac);display:grid;place-items:center;flex:none}
+.adm-stat-ic.dng{background:#ef444422;color:var(--dng)}
+.adm-stat-ic.warn{background:#f59e0b22;color:var(--gold)}
+.adm-stat-ic.ok{background:#16a34a22;color:var(--ok)}
+.adm-stat b{display:block;font-size:19px;line-height:1.15;color:var(--tx)}
+.adm-stat span{font-size:11.5px;color:var(--mu);font-weight:600}
+
+.adm-tabs{display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.adm-tabs::-webkit-scrollbar{display:none}
+.adm-tabs button{padding:10px 15px;border-radius:999px;background:var(--sf);border:1px solid var(--ln);font-weight:700;font-size:13px;color:var(--tx);display:inline-flex;align-items:center;gap:7px;white-space:nowrap;flex:none}
+.adm-tabs button.on{background:var(--ac);color:#fff;border-color:transparent;box-shadow:0 8px 20px -8px color-mix(in srgb,var(--ac) 75%,transparent)}
+.adm-tabs .bdg{padding:1px 7px;border-radius:99px;font-size:11px;font-weight:800;background:#ef4444;color:#fff;font-style:normal}
+
+.adm-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.adm-search{flex:1;min-width:210px;display:flex;align-items:center;gap:8px;background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:0 14px;color:var(--mu)}
+.adm-search input{border:0!important;background:none!important;padding:11px 0!important;box-shadow:none!important;width:100%}
+.adm-filters{display:flex;gap:6px;flex-wrap:wrap}
+.adm-flt{padding:8px 13px;border-radius:999px;background:var(--sf);border:1px solid var(--ln);font-size:12.5px;font-weight:700;color:var(--mu);cursor:pointer}
+.adm-flt.on{background:color-mix(in srgb,var(--ac) 16%,var(--sf));color:var(--ac);border-color:var(--ac)}
+
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:16px;margin-bottom:12px;display:grid;gap:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:0}.row.sp{justify-content:space-between}
+.av{width:44px;height:44px;border-radius:50%;background:var(--sf2);display:grid;place-items:center;font-weight:800;overflow:hidden;flex:none;border:2px solid var(--ln)}.av img{width:100%;height:100%;object-fit:cover}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;padding:3px 10px;border-radius:99px;background:var(--sf2);font-weight:700}
+.tag.p{background:#f59e0b26;color:#f59e0b}.tag.a{background:#16a34a26;color:#16a34a}.tag.r{background:#ef444426;color:#ef4444}.tag.b{background:#3b82f626;color:#3b82f6}
+.abtn{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:8px 13px;background:var(--ac);color:#fff;font-weight:700;font-size:12.5px;cursor:pointer}
+.abtn:disabled{opacity:.5;pointer-events:none}
+.abtn.g{background:var(--sf2);color:var(--tx);border:1px solid var(--ln)}.abtn.no{background:var(--dng);color:#fff}.abtn.ok{background:var(--ok);color:#fff}.abtn.wn{background:#f59e0b;color:#000}
+.rbox{background:var(--bg);border:1px solid var(--ln);border-radius:16px;padding:14px;display:grid;gap:10px}
+.rmedia{max-width:250px;max-height:330px;border-radius:14px;overflow:hidden;background:#000;display:block}
+.act-box{background:var(--bg);border:1px solid var(--ln);border-radius:16px;padding:12px 14px;display:none;gap:8px;margin-top:2px}
+.act-box.open{display:grid}
+
+.vgrid-adm{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:12px}
+.vcard-adm{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:14px;display:grid;gap:10px;align-content:space-between}
+.vcard-adm video,.vcard-adm img{width:100%;height:230px;object-fit:contain;border-radius:14px;background:#000}
+
+/* ---------- Panel Deteksi Pedoman & Banding ---------- */
+.mod-hero{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 16%,var(--sf)),var(--sf));border:1.5px solid color-mix(in srgb,var(--ac) 35%,var(--ln));border-radius:22px;padding:16px;margin-bottom:14px;display:grid;gap:14px}
+.mod-sum-pills{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px}
+.mod-s-pill{background:var(--bg);border:1px solid var(--ln);border-radius:14px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer}
+.mod-s-pill:hover{border-color:var(--ac)}
+.mod-s-pill b{font-size:18px;font-weight:800}
+.mod-s-pill small{font-size:11.5px;color:var(--mu);font-weight:700}
+
+.mod-card{background:var(--sf);border:1.5px solid var(--ln);border-radius:20px;padding:15px;margin-bottom:12px;display:grid;grid-template-columns:190px 1fr;gap:14px;align-items:start}
+.mod-card.lv-violation{border-color:#ef444488;background:color-mix(in srgb,#ef4444 5%,var(--sf))}
+.mod-card.lv-warning{border-color:#f59e0b88;background:color-mix(in srgb,#f59e0b 4%,var(--sf))}
+.mod-card.lv-blocked{border-color:#ef4444;opacity:.96}
+.mod-vid-box{width:100%;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:9/14;position:relative}
+.mod-vid-box video{width:100%;height:100%;object-fit:contain;display:block}
+.mod-info{display:grid;gap:10px;min-width:0}
+
+.appeal-banner{background:color-mix(in srgb,var(--gold) 14%,var(--bg));border:1.5px solid color-mix(in srgb,var(--gold) 55%,var(--ln));border-radius:14px;padding:12px;display:grid;gap:8px}
+.appeal-banner b{color:var(--gold);display:flex;align-items:center;gap:6px;font-size:13.5px}
+
+.risk-wrap{background:var(--bg);border:1px solid var(--ln);border-radius:14px;padding:10px 12px;display:grid;gap:6px}
+.risk-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12.5px;font-weight:800}
+.risk-bar{height:8px;border-radius:99px;background:var(--sf2);overflow:hidden}
+.risk-bar i{display:block;height:100%;border-radius:99px;transition:width .35s}
+.mod-reasons{margin:0;padding-left:18px;font-size:12.5px;color:var(--tx);display:grid;gap:4px}
+.mod-reasons li{line-height:1.4}
+.mod-cats{display:flex;gap:6px;flex-wrap:wrap}
+
+@media (max-width:640px){
+  .mod-card{grid-template-columns:1fr}
+  .mod-vid-box{max-height:230px;aspect-ratio:16/10}
+  .adm-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+#toast-adm{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:11px 20px;border-radius:999px;font-weight:700;box-shadow:0 10px 28px #0006;display:none;z-index:999;max-width:92vw;text-align:center}
+
+[data-style=glass] :is(.adm-stat,.card,.vcard-adm,.mod-card,.mod-hero,.quick-bar,.adm-pill,.adm-tabs button,.adm-search,.adm-flt){-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);border:1px solid var(--ln);box-shadow:inset 0 1px 0 #ffffff44,0 10px 28px -14px #0007}
+[data-style=brutal] :is(.card,.vcard-adm,.mod-card,.mod-hero,.quick-bar,.adm-stat,.adm-pill,.adm-tabs button,.rbox,.act-box,.abtn,.adm-search,.adm-flt){border:2.5px solid var(--ln)!important;box-shadow:var(--sh)!important;border-radius:12px!important}
+[data-style=brutal] .adm-tabs button.on{background:var(--ac2);color:#000}
+
+/* ---------- Analisis visual ---------- */
+.vz-box{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:14px;background:var(--bg);border:1px solid var(--ln);margin:8px 0 10px}
+.vz-box small{display:block;color:var(--mu);font-size:12px;margin-top:6px;line-height:1.45}
+.vz-box .risk-bar{margin:6px 0 0}
+.vz-ic{flex:none;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--sf2);color:var(--mu)}
+.vz-none b{font-size:13px}.vz-none small{margin-top:2px}
+.vz-hash{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--dng)}
+.vz-warn{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--dng);font-weight:600;margin:2px 0}
+.mod-clean{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mu)}.mod-clean .ic{color:var(--ok)}
+.act-box select{width:100%}
+</style></head><body data-view="app">
+
+<!-- DASBOR UTAMA SISTEM (TANPA LOGIN, MUDAH DIKONTROL) -->
+<div class="adm-shell" id="adm-app">
+  <header class="adm-nav">
+    <div class="adm-nav-in">
+      <div class="adm-brand">
+        <h1 id="adm-title"></h1>
+        <span class="adm-tagline">Swipe. Play. Repeat.</span>
+        <span class="adm-status"><i></i> <span id="info">Sistem Aktif</span></span>
+      </div>
+      <div class="adm-actions">
+        <button type="button" class="adm-pill" id="adm-th-btn" title="Ganti Mode Terang/Gelap"></button>
+        <button type="button" class="adm-pill" id="adm-st-btn" title="Ganti Gaya Tema"></button>
+        <button type="button" class="adm-pill" id="adm-ref-btn"></button>
+        <a href="index.html" class="adm-pill ac" id="adm-back"></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="adm-wrap">
+    <!-- PANEL KONTROL CEPAT SATU KLIK -->
+    <section class="quick-bar" id="quick-bar">
+      <div class="quick-top">
+        <h2><span id="qc-ic"></span> Kontrol Cepat Sistem</h2>
+        <small class="mu">Kelola moderasi, banding takedown, akun, dan siaran dengan 1 klik</small>
+      </div>
+      <div class="quick-btns" id="quick-btns"></div>
+      <div class="act-box" id="quick-bc-box">
+        <b>Siaran Pengumuman Cepat Sistem Zippy</b>
+        <div class="row">
+          <input id="q-bc-target" value="all" placeholder="Target: 'all' atau @username" style="max-width:190px">
+          <input id="q-bc-msg" placeholder="Tulis pengumuman resmi Sistem Zippy untuk pengguna..." style="flex:1">
+          <button type="button" class="abtn" id="q-bc-send"></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="adm-stats" id="stats"></div>
+
+    <div class="adm-tabs" id="adm-tabs">
+      <button type="button" data-t="moderation" class="on" id="tb-mod"></button>
+      <button type="button" data-t="appeals" id="tb-appeals"></button>
+      <button type="button" data-t="users" id="tb-users"></button>
+      <button type="button" data-t="videos" id="tb-videos"></button>
+      <button type="button" data-t="reports" id="tb-reports"></button>
+      <button type="button" data-t="verif" id="tb-verif"></button>
+      <button type="button" data-t="stories" id="tb-stories"></button>
+      <button type="button" data-t="broadcast" id="tb-broadcast"></button>
+    </div>
+
+    <div id="box"></div>
+  </main>
+</div>
+
+<div id="toast-adm"></div>
+
+<script src="config.js?v=2.9.0"></script>
+<script src="js/icons.js?v=2.9.0"></script>
+<script>
+let SERVER = (localStorage.getItem('kserver') || window.ZIPPY_SERVER || window.KILAS_SERVER || '').replace(/\/+$/, '');
+const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';');
+
+/* ---------- Tema Sinkron dengan Aplikasi ---------- */
+let S = { theme: 'auto', style: 'default', ...JSON.parse(localStorage.ks || '{}') };
+function applyTheme() {
+  const dark = S.theme === 'dark' || (S.theme === 'auto' && matchMedia('(prefers-color-scheme:dark)').matches);
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  document.documentElement.dataset.style = S.style || 'default';
+  const thBtn = $('#adm-th-btn'), stBtn = $('#adm-st-btn');
+  if (thBtn) thBtn.innerHTML = `${ic(dark ? 'moon' : 'sun', 's')} <span>${dark ? 'Gelap' : 'Terang'}</span>`;
+  const stNames = { default: 'Standar', glass: 'Glass', brutal: 'Brutal' };
+  if (stBtn) stBtn.innerHTML = `${ic('palette', 's')} <span>${stNames[S.style] || 'Standar'}</span>`;
+}
+applyTheme();
+
+$('#adm-th-btn').onclick = () => {
+  const curDark = document.documentElement.dataset.theme === 'dark';
+  S.theme = curDark ? 'light' : 'dark';
+  try { localStorage.ks = JSON.stringify(S) } catch {}
+  applyTheme();
+};
+$('#adm-st-btn').onclick = () => {
+  const order = ['default', 'glass', 'brutal'];
+  S.style = order[(order.indexOf(S.style) + 1) % order.length];
+  try { localStorage.ks = JSON.stringify(S) } catch {}
+  applyTheme();
+};
+
+/* ---------- Inisialisasi Ikon SVG ---------- */
+$('#adm-title').innerHTML = `${logo(28)} <span>Zippy <b>Sistem Center</b></span>`;
+$('#adm-ref-btn').innerHTML = `${ic('refresh', 's')} <span>Segarkan</span>`;
+$('#adm-back').innerHTML = `${ic('home', 's')} <span>Buka Beranda Zippy</span>`;
+$('#qc-ic').innerHTML = ic('spark', 's');
+$('#q-bc-send').innerHTML = `${ic('send', 's')} Kirim`;
+
+$('#tb-mod').innerHTML = `${ic('shield', 's')} <span>Deteksi Pedoman</span>`;
+$('#tb-appeals').innerHTML = `${ic('flag', 's')} <span>Banding Takedown</span>`;
+$('#tb-users').innerHTML = `${ic('users', 's')} <span>Kelola Akun</span>`;
+$('#tb-videos').innerHTML = `${ic('video', 's')} <span>Kelola Video</span>`;
+$('#tb-reports').innerHTML = `${ic('alert', 's')} <span>Laporan Masuk</span>`;
+$('#tb-verif').innerHTML = `${ic('star', 's')} <span>Centang Biru</span>`;
+$('#tb-stories').innerHTML = `${ic('camera', 's')} <span>Kelola Story</span>`;
+$('#tb-broadcast').innerHTML = `${ic('megaphone', 's')} <span>Siaran Global</span>`;
+
+let tab = 'moderation', uFilter = 'all', rFilter = '', vFilter = '', modFilter = 'all', verifFilter = 'pending', appealFilter = 'pending';
+let sysStats = {};
+
+function msg(t, bad = false) {
+  const el = $('#toast-adm'); el.textContent = t; el.style.background = bad ? '#ef4444' : '#16a34a'; el.style.display = 'block';
+  clearTimeout(msg.t); msg.t = setTimeout(() => el.style.display = 'none', 2800);
+}
+
+const api = async (p, o = {}) => {
+  const headers = { 'Content-Type': 'application/json' };
+  let r;
+  try {
+    r = await fetch(SERVER + '/api/sistem' + p, {
+      ...o,
+      headers,
+      body: o.json ? JSON.stringify(o.json) : undefined
+    });
+  } catch {
+    throw new Error('Tidak dapat terhubung ke server Zippy' + (SERVER ? ' (' + SERVER + ')' : ''));
+  }
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) {
+    const err = new Error(d.error || 'Gagal memuat data sistem (Status ' + r.status + ')');
+    err.status = r.status;
+    throw err;
+  }
+  return d;
+};
+
+const dt = t => t ? new Date(t * 1000).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' }) : '';
+const av = u => `<span class="av">${u && u.avatar ? `<img src="${SERVER}/uploads/${esc(u.avatar)}">` : esc(((u && (u.name || u.username)) || '?')[0].toUpperCase())}</span>`;
+const sysVidUrl = f => `${SERVER}/uploads/${esc(f)}?sistem=1`;
+
+function calcAgeFromBirthDate(bd) {
+  if (!bd || !/^\d{4}-\d{2}-\d{2}$/.test(bd)) return '';
+  const [y, m, d] = bd.split('-').map(Number);
+  const now = new Date();
+  let age = now.getFullYear() - y;
+  const md = (now.getMonth() + 1) - m;
+  if (md < 0 || (md === 0 && now.getDate() < d)) age--;
+  return `${bd} (${age} thn)`;
+}
+
+function renderQuickBar(s = {}) {
+  $('#quick-btns').innerHTML = `
+    <button type="button" class="qbtn pri" data-qact="scan">${ic('refresh', 's')} Pindai Semua Video</button>
+    <button type="button" class="qbtn ${s.appeals ? 'warn' : ''}" data-qact="appeals">${ic('shield', 's')} Banding Takedown (${s.appeals || 0})</button>
+    ${s.appeals ? `<button type="button" class="qbtn ok" data-qact="approve-appeals">${ic('check', 's b3')} Terima Semua Banding (${s.appeals})</button>` : ''}
+    ${s.pending ? `<button type="button" class="qbtn ok" data-qact="approve-verifs">${ic('star', 's')} Setujui Semua Centang Biru (${s.pending})</button>` : ''}
+    ${s.blocked ? `<button type="button" class="qbtn" data-qact="unblock-all">${ic('check', 's')} Pulihkan Semua Takedown (${s.blocked})</button>` : ''}
+    ${s.reports ? `<button type="button" class="qbtn" data-qact="clear-reports">${ic('trash', 's')} Bersihkan Laporan (${s.reports})</button>` : ''}
+    <button type="button" class="qbtn" data-qact="quick-bc">${ic('megaphone', 's')} Pengumuman Cepat</button>
+  `;
+}
+
+$('#quick-btns').onclick = async e => {
+  const b = e.target.closest('[data-qact]'); if (!b) return;
+  const act = b.dataset.qact;
+  if (act === 'quick-bc') {
+    $('#quick-bc-box').classList.toggle('open');
+    const inp = $('#q-bc-msg'); if (inp && $('#quick-bc-box').classList.contains('open')) inp.focus();
+    return;
+  }
+  if (act === 'appeals') {
+    tab = 'appeals'; appealFilter = 'pending';
+    $$('#adm-tabs button').forEach(x => x.classList.toggle('on', x.dataset.t === tab));
+    return load();
+  }
+  b.disabled = true;
+  try {
+    if (act === 'scan') {
+      const r = await api('/moderation/scan', { method: 'POST' });
+      msg(`Pemindaian selesai: ${r.scanned} video diperiksa (${r.flagged} perlu tinjauan)`);
+      await enter(true);
+    } else if (act === 'approve-appeals') {
+      const r = await api('/appeals/bulk', { method: 'POST', json: { action: 'approve' } });
+      msg(`${r.count} banding video disetujui & dipulihkan ke publik`);
+      await enter(true);
+    } else if (act === 'approve-verifs') {
+      const r = await api('/verifications/bulk', { method: 'POST', json: { action: 'approve' } });
+      msg(`${r.count} pengajuan centang biru disetujui`);
+      await enter(true);
+    } else if (act === 'unblock-all') {
+      const r = await api('/moderation/bulk', { method: 'POST', json: { action: 'unblock_all' } });
+      msg(`${r.count} video takedown telah dipulihkan ke publik`);
+      await enter(true);
+    } else if (act === 'clear-reports') {
+      await api('/reports', { method: 'DELETE' });
+      msg('Semua laporan berhasil dibersihkan');
+      await enter(true);
+    }
+  } catch (err) { msg(err.message, true) }
+  b.disabled = false;
+};
+
+$('#q-bc-send').onclick = async () => {
+  const btn = $('#q-bc-send'), target = $('#q-bc-target').value.trim() || 'all', message = $('#q-bc-msg').value.trim();
+  if (!message) return msg('Tulis isi pengumuman terlebih dahulu', true);
+  btn.disabled = true;
+  try {
+    const r = await api('/broadcast', { method: 'POST', json: { target, message } });
+    $('#q-bc-msg').value = '';
+    $('#quick-bc-box').classList.remove('open');
+    msg(`Pengumuman Sistem berhasil dikirim ke ${r.sent} pengguna`);
+  } catch (err) { msg(err.message, true) }
+  btn.disabled = false;
+};
+
+$('#adm-ref-btn').onclick = () => enter(false);
+
+async function enter(preserveScroll = false) {
+  const sy = preserveScroll ? window.scrollY : 0;
+  try {
+    const p = await api('/ping');
+    $('#info').textContent = `Sistem Aktif · FFmpeg: ${p.ffmpeg ? 'Siap' : 'Nonaktif'}`;
+    if (p.stats) {
+      const s = sysStats = p.stats;
+      renderQuickBar(s);
+      $('#tb-mod').innerHTML = `${ic('shield', 's')} <span>Deteksi Pedoman</span> ${s.flagged ? `<i class="bdg">${s.flagged}</i>` : ''}`;
+      $('#tb-appeals').innerHTML = `${ic('flag', 's')} <span>Banding Takedown</span> ${s.appeals ? `<i class="bdg">${s.appeals}</i>` : ''}`;
+      $('#tb-reports').innerHTML = `${ic('alert', 's')} <span>Laporan Masuk</span> ${s.reports ? `<i class="bdg">${s.reports}</i>` : ''}`;
+      $('#tb-verif').innerHTML = `${ic('star', 's')} <span>Centang Biru</span> ${s.pending ? `<i class="bdg">${s.pending}</i>` : ''}`;
+      $('#stats').innerHTML = `
+        <button type="button" class="adm-stat${tab === 'moderation' && modFilter === 'all' ? ' active' : ''}" data-go="moderation" data-mflt="all"><span class="adm-stat-ic ${s.flagged ? 'dng' : 'ok'}">${ic('shield')}</span><div><b>${s.flagged || 0}</b><span>Terdeteksi Pedoman</span></div></button>
+        <button type="button" class="adm-stat${tab === 'appeals' ? ' active' : ''}" data-go="appeals"><span class="adm-stat-ic ${s.appeals ? 'warn' : 'ok'}">${ic('flag')}</span><div><b>${s.appeals || 0}</b><span>Banding Takedown</span></div></button>
+        <button type="button" class="adm-stat${tab === 'moderation' && modFilter === 'blocked' ? ' active' : ''}" data-go="moderation" data-mflt="blocked"><span class="adm-stat-ic dng">${ic('ban')}</span><div><b>${s.blocked || 0}</b><span>Video Ditakedown</span></div></button>
+        <button type="button" class="adm-stat${tab === 'users' && uFilter === 'all' ? ' active' : ''}" data-go="users" data-flt="all"><span class="adm-stat-ic">${ic('users')}</span><div><b>${s.users}</b><span>Total Akun</span></div></button>
+        <button type="button" class="adm-stat${tab === 'users' && uFilter === 'banned' ? ' active' : ''}" data-go="users" data-flt="banned"><span class="adm-stat-ic dng">${ic('ban')}</span><div><b>${s.banned || 0}</b><span>Akun Dibanned</span></div></button>
+        <button type="button" class="adm-stat${tab === 'videos' ? ' active' : ''}" data-go="videos"><span class="adm-stat-ic">${ic('video')}</span><div><b>${s.videos}</b><span>Total Video</span></div></button>
+        <button type="button" class="adm-stat${tab === 'reports' ? ' active' : ''}" data-go="reports"><span class="adm-stat-ic warn">${ic('alert')}</span><div><b>${s.reports}</b><span>Laporan Masuk</span></div></button>
+        <button type="button" class="adm-stat${tab === 'verif' ? ' active' : ''}" data-go="verif"><span class="adm-stat-ic">${ic('star')}</span><div><b>${s.pending}</b><span>Antrean Centang</span></div></button>`;
+    }
+    $$('#adm-tabs button').forEach(x => x.classList.toggle('on', x.dataset.t === tab));
+    await load();
+    if (preserveScroll) requestAnimationFrame(() => window.scrollTo(0, sy));
+  } catch (err) {
+    $('#box').innerHTML = `<div class="card"><p style="color:var(--dng)">${esc(err.message || 'Gagal memuat Sistem')}</p></div>`;
+  }
+}
+
+$('#stats').onclick = e => {
+  const b = e.target.closest('[data-go]'); if (!b) return;
+  tab = b.dataset.go;
+  if (b.dataset.flt) uFilter = b.dataset.flt;
+  if (b.dataset.mflt) modFilter = b.dataset.mflt;
+  $$('#adm-tabs button').forEach(x => x.classList.toggle('on', x.dataset.t === tab));
+  load();
+};
+
+$('#adm-tabs').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  tab = b.dataset.t;
+  $$('#adm-tabs button').forEach(x => x.classList.toggle('on', x === b));
+  load();
+};
+
+const KIND_LBL = () => ({
+  video: `${ic('video', 's')} Video`,
+  comment: `${ic('msg', 's')} Komentar`,
+  story: `${ic('camera', 's')} Story`,
+  user: `${ic('user', 's')} Akun Pengguna`
+});
+
+/* ---------- Deteksi Pelanggaran Lokal (Fallback) ---------- */
+const LOCAL_MOD_RULES = [
+  ['Judi Online & Spam', 65, ['slot', 'gacor', 'maxwin', 'pragmatic', 'judol', 'judi', 'togel', 'casino', 'pinjol', 'dana kaget', 'rtp']],
+  ['Konten Dewasa (NSFW)', 70, ['bokep', 'porn', 'nsfw', 'bugil', 'telanjang', '18+', 'open bo', 'vcs', 'hentai', 'mesum', 'syur']],
+  ['Kekerasan & Berbahaya', 75, ['bunuh', 'darah', 'sadis', 'gore', 'bom', 'teroris', 'tawuran', 'celurit', 'suicide', 'lukai diri']],
+  ['Ujaran Kebencian', 55, ['rasis', 'anjing lo', 'goblok lo', 'tolol lo', 'doxing', 'ancaman', 'pelecehan', 'fitnah']],
+  ['Hoaks & Hak Cipta', 40, ['hoaks', 'hoax', 'bajakan', 'full movie', 'scam']]
+];
+function clientAnalyzeVideo(v) {
+  if (v && v.mod) return v.mod;
+  const txt = ` ${v.caption || ''} ${v.audio_title || ''} `.toLowerCase();
+  let score = 0; const categories = [], reasons = [];
+  for (const [label, w, words] of LOCAL_MOD_RULES) {
+    const hits = words.filter(k => txt.includes(k));
+    if (hits.length) {
+      score += w;
+      categories.push(label);
+      reasons.push(`Terdeteksi kata kunci [${label}]: "${hits.join(', ')}"`);
+    }
+  }
+  score = Math.min(100, score);
+  const level = score >= 60 ? 'violation' : score >= 25 ? 'warning' : 'safe';
+  return { score, level, mod_status: v.mod_status || 'auto', categories, reasons };
+}
+
+function modBadgeHTML(mod, appeal = null) {
+  const apBadge = appeal && appeal.status === 'pending'
+    ? `<span class="tag p">${ic('flag', 's')} Banding Menunggu</span>`
+    : '';
+  if (!mod) return `${apBadge}<span class="tag a">${ic('check', 's')} Aman</span>`;
+  if (mod.mod_status === 'blocked') return `${apBadge}<span class="tag r">${ic('ban', 's')} Ditakedown (${mod.score}%)</span>`;
+  if (mod.level === 'violation') return `${apBadge}<span class="tag r">${ic('alert', 's')} Melanggar Pedoman (${mod.score}%)</span>`;
+  if (mod.level === 'warning') return `${apBadge}<span class="tag p">${ic('alert', 's')} Perlu Ditinjau (${mod.score}%)</span>`;
+  return `${apBadge}<span class="tag a">${ic('check', 's')} Aman (${mod.score}%)</span>`;
+}
+
+function visualBlockHTML(v, m) {
+  const vz = m.visual;
+  if (!vz) return `<div class="vz-box vz-none"><span class="vz-ic">${ic('eye', 's')}</span><div><b>Analisis visual belum tersedia</b><small>${v.mod_visual ? 'Frame video tidak dapat dibaca.' : 'Video ini belum dipindai. Gunakan tombol Pindai Visual.'}</small></div></div>`;
+  const col = vz.score >= 85 ? '#ef4444' : vz.score >= 45 ? '#f59e0b' : '#10b981';
+  const hm = m.hash_match ? `<div class="vz-hash">${ic('ban', 's')} ${m.hash_match.type === 'identik' ? 'File identik' : 'Visual mirip'} dengan video #${m.hash_match.video_id} yang sudah diblokir</div>` : '';
+  return `<div class="vz-box"><span class="vz-ic" style="color:${col}">${ic('eye', 's')}</span><div style="flex:1;min-width:0">
+    <div class="row sp"><b>Analisis visual</b><b style="color:${col}">${vz.score}%</b></div>
+    <div class="risk-bar"><i style="width:${Math.max(3, vz.score)}%;background:${col}"></i></div>
+    <small>${vz.flagged} dari ${vz.frames} frame didominasi area kulit · rata-rata ${Math.round(vz.avg * 100)}% · puncak ${Math.round(vz.peak * 100)}% · ${esc(vz.source)}</small>${hm}</div></div>`;
+}
+
+function appealBannerHTML(ap) {
+  if (!ap) return '';
+  if (ap.status === 'pending') {
+    return `<div class="appeal-banner" data-ap-box="${ap.id}">
+      <div class="row sp">
+        <b>${ic('flag', 's')} Pengajuan Banding Kreator (Menunggu Keputusan Sistem)</b>
+        <small class="mu">${dt(ap.created)}</small>
+      </div>
+      <div style="font-size:13.5px;background:var(--sf);padding:8px 12px;border-radius:10px;border:1px solid var(--ln)">“${esc(ap.reason)}”</div>
+      <div class="row">
+        <input class="ap-note-inp" placeholder="Catatan keputusan Sistem untuk kreator (opsional)..." style="flex:1;padding:8px 12px;font-size:13px">
+        <button type="button" class="abtn ok" data-ap-act="approve" data-apid="${ap.id}">${ic('check', 's b3')} Terima Banding & Pulihkan</button>
+        <button type="button" class="abtn no" data-ap-act="reject" data-apid="${ap.id}">${ic('close', 's')} Tolak Banding</button>
+      </div>
+    </div>`;
+  }
+  return `<div class="row" style="font-size:12.5px"><span class="tag ${ap.status === 'approved' ? 'a' : 'r'}">Banding ${ap.status === 'approved' ? 'Disetujui' : 'Ditolak'}</span> <span class="mu">Alasan: “${esc(ap.reason)}”${ap.note ? ' · Catatan Sistem: ' + esc(ap.note) : ''}</span></div>`;
+}
+
+function modVideoCardHTML(v) {
+  const m = clientAnalyzeVideo(v);
+  const barCol = m.mod_status === 'blocked' || m.level === 'violation' ? '#ef4444' : m.level === 'warning' ? '#f59e0b' : '#10b981';
+  const lvCls = m.mod_status === 'blocked' ? 'lv-blocked' : 'lv-' + m.level;
+  return `<div class="mod-card ${lvCls}" data-vid="${v.id}">
+    <div class="mod-vid-box">
+      <video src="${sysVidUrl(v.file)}" controls preload="metadata"></video>
+    </div>
+    <div class="mod-info">
+      <div class="row sp">
+        <div class="row">${av(v)}
+          <div>
+            <b>${esc(v.name || v.username)}</b> <span class="mu">@${esc(v.username)} · Kode ${esc(v.code || v.id)}</span>
+            <div class="mu" style="font-size:11.5px">${dt(v.created)} · ${ic('eye', 's')} ${v.views || 0} · ${ic('heart', 's')} ${v.likes || 0} · ${ic('msg', 's')} ${v.comments || 0}</div>
+          </div>
+        </div>
+        <div class="row">${modBadgeHTML(m, v.appeal)}</div>
+      </div>
+
+      <div style="font-size:14px;padding:8px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--ln)">
+        <b>Caption:</b> ${esc(v.caption || '(Tanpa keterangan)')}
+        ${v.audio_title ? `<div class="mu" style="font-size:12px;margin-top:3px">${ic('music', 's')} Audio: ${esc(v.audio_title)}</div>` : ''}
+      </div>
+
+      ${appealBannerHTML(v.appeal)}
+
+      <div class="risk-wrap">
+        <div class="risk-hd">
+          <span>Skor Risiko Pelanggaran Pedoman Komunitas</span>
+          <b style="color:${barCol}">${m.score}% (${m.mod_status === 'blocked' ? 'Ditakedown dari Publik' : m.level === 'violation' ? 'Risiko Tinggi / Melanggar' : m.level === 'warning' ? 'Perlu Ditinjau Sistem' : 'Aman / Sesuai Pedoman'})</b>
+        </div>
+        <div class="risk-bar"><i style="width:${Math.max(4, m.score)}%;background:${barCol}"></i></div>
+        ${visualBlockHTML(v, m)}
+        ${m.categories && m.categories.length ? `<div class="mod-cats">${m.categories.map(c => `<span class="tag r">${esc(c)}</span>`).join('')}</div>` : ''}
+        ${m.reasons && m.reasons.length
+          ? `<ul class="mod-reasons">${m.reasons.map(r => `<li>${esc(r)}</li>`).join('')}</ul>`
+          : `<div class="mu mod-clean">${ic('check', 's')} Tidak ditemukan kata terlarang, tautan spam, indikasi visual, atau laporan komunitas pada video ini.</div>`}
+      </div>
+
+      <div class="row sp" style="padding-top:4px">
+        <div class="row">
+          <button type="button" class="abtn ok" data-mod-act="approve" data-id="${v.id}" data-u="${esc(v.username)}">${ic('check', 's b3')} Tandai Aman</button>
+          ${m.mod_status === 'blocked'
+            ? `<button type="button" class="abtn ok" data-mod-act="unblock" data-id="${v.id}" data-u="${esc(v.username)}">${ic('check', 's')} Pulihkan ke Publik</button>`
+            : `<button type="button" class="abtn no" data-mod-act="block" data-id="${v.id}" data-u="${esc(v.username)}">${ic('ban', 's')} Takedown Video</button>`}
+          <button type="button" class="abtn wn" data-mod-act="warn" data-id="${v.id}" data-u="${esc(v.username)}">${ic('alert', 's')} Peringatkan Kreator</button>
+          <button type="button" class="abtn g" data-mod-act="rescan" data-id="${v.id}" data-u="${esc(v.username)}">${ic('refresh', 's')} Pindai Visual</button>
+        </div>
+        <div class="row">
+          <a class="adm-pill" href="index.html#v=${v.code || v.id}" target="_blank">Buka</a>
+          <button type="button" class="abtn no" data-delv="${v.id}" title="Hapus Permanen">${ic('trash', 's')} Hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function appealCardHTML(a) {
+  const isPending = a.status === 'pending';
+  return `<div class="mod-card ${isPending ? 'lv-warning' : ''}" data-apid="${a.id}">
+    <div class="mod-vid-box">
+      <video src="${sysVidUrl(a.file)}" controls preload="metadata"></video>
+    </div>
+    <div class="mod-info">
+      <div class="row sp">
+        <div class="row">${av(a)}
+          <div>
+            <b>${esc(a.name || a.username)}</b> <span class="mu">@${esc(a.username)} · Kode Video ${esc(a.code || a.video_id)}</span>
+            <div class="mu" style="font-size:11.5px">Diajukan ${dt(a.created)}${a.decided ? ' · Diputuskan ' + dt(a.decided) : ''}</div>
+          </div>
+        </div>
+        <span class="tag ${a.status === 'pending' ? 'p' : a.status === 'approved' ? 'a' : 'r'}">${a.status === 'pending' ? 'Menunggu Keputusan Sistem' : a.status === 'approved' ? 'Banding Disetujui (Video Pulih)' : 'Banding Ditolak'}</span>
+      </div>
+
+      <div style="font-size:13.5px;padding:8px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--ln)">
+        <b>Caption Video:</b> ${esc(a.caption || '(Tanpa keterangan)')}
+        ${a.categories && a.categories.length ? `<div class="mod-cats" style="margin-top:6px">${a.categories.map(c => `<span class="tag r">${esc(c)}</span>`).join('')}</div>` : ''}
+      </div>
+
+      <div class="appeal-banner" data-ap-box="${a.id}">
+        <b>${ic('msg', 's')} Alasan Banding dari @${esc(a.username)}:</b>
+        <div style="font-size:14.5px;font-weight:600;padding:10px 12px;border-radius:10px;background:var(--sf);border:1px solid var(--ln)">“${esc(a.reason)}”</div>
+        ${a.note ? `<div class="mu" style="font-size:12.5px">Catatan Sistem: <b>${esc(a.note)}</b></div>` : ''}
+        ${isPending ? `
+          <div class="row" style="margin-top:4px">
+            <input class="ap-note-inp" placeholder="Tulis balasan / catatan Sistem untuk kreator (opsional)..." style="flex:1">
+          </div>
+          <div class="row">
+            <button type="button" class="abtn ok" data-ap-act="approve" data-apid="${a.id}">${ic('check', 's b3')} Terima Banding & Pulihkan Video</button>
+            <button type="button" class="abtn no" data-ap-act="reject" data-apid="${a.id}">${ic('close', 's')} Tolak Banding (Tetap Takedown)</button>
+            <button type="button" class="abtn no" data-delv="${a.video_id}" title="Hapus Video Permanen">${ic('trash', 's')} Hapus Video</button>
+          </div>
+        ` : `
+          <div class="row">
+            ${a.mod_status === 'blocked'
+              ? `<button type="button" class="abtn ok" data-ap-act="approve" data-apid="${a.id}">${ic('check', 's')} Pulihkan Video Sekarang</button>`
+              : `<span class="tag a">${ic('check', 's')} Video Aktif di Publik</span>`}
+            <button type="button" class="abtn no" data-delv="${a.video_id}">${ic('trash', 's')} Hapus Video</button>
+          </div>
+        `}
+      </div>
+    </div>
+  </div>`;
+}
+
+function reportDetailHTML(r) {
+  const d = r.detail;
+  if (!d) return `<div class="rbox"><span class="mu">Konten yang dilaporkan (${esc(r.kind)} #${esc(r.target)}) sudah dihapus atau tidak ditemukan.</span></div>`;
+  const userActions = d.username ? `<button class="abtn wn" data-open-warn="${esc(d.username)}">${ic('alert', 's')} Peringatkan @${esc(d.username)}</button><button class="abtn ${d.banned ? 'ok' : 'no'}" data-ban="${esc(d.username)}" data-on="${d.banned ? 0 : 1}">${ic(d.banned ? 'check' : 'ban', 's')} ${d.banned ? 'Buka Banned' : 'Banned Akun'}</button>` : '';
+  if (r.kind === 'video') {
+    return `<div class="rbox">
+      <div class="row">${av(d)}<div><b>${esc(d.name || d.username)}</b> <span class="mu">@${esc(d.username)} · ${dt(d.created)}</span><div>${esc(d.caption || '(Tanpa keterangan)')}</div></div></div>
+      <video class="rmedia" src="${sysVidUrl(d.file)}" controls preload="metadata"></video>
+      <div class="row"><button class="abtn no" data-mod-act="block" data-id="${d.id}" data-u="${esc(d.username)}">${ic('ban', 's')} Takedown Video</button><button class="abtn no" data-delv="${d.id}">${ic('trash', 's')} Hapus Permanen</button>${userActions}<a class="adm-pill" href="index.html#v=${d.code || d.id}" target="_blank">Buka di Aplikasi</a></div>
+      <div class="act-box" id="wb-${esc(d.username)}"><input placeholder="Tulis pesan peringatan untuk @${esc(d.username)}..." value="Peringatan Sistem: Konten videomu melanggar pedoman komunitas Zippy."><button class="abtn wn" data-send-warn="${esc(d.username)}">${ic('send', 's')} Kirim Peringatan</button></div>
+    </div>`;
+  }
+  if (r.kind === 'comment') {
+    return `<div class="rbox">
+      <div class="row">${av(d)}<div><b>${esc(d.name || d.username)}</b> <span class="mu">@${esc(d.username)} pada Video #${d.video_id} · ${dt(d.created)}</span></div></div>
+      <div style="font-size:15px;padding:4px 0">“${esc(d.text || '(Komentar media/stiker)')}”</div>
+      ${d.media && d.kind === 'image' ? `<img class="rmedia" src="${SERVER}/uploads/${esc(d.media)}">` : d.media && d.kind === 'audio' ? `<audio controls src="${SERVER}/uploads/${esc(d.media)}"></audio>` : d.media && d.kind === 'sticker' ? `<div>${stk(d.media, 72)}</div>` : ''}
+      <div class="row"><button class="abtn no" data-delc="${d.id}">${ic('trash', 's')} Hapus Komentar</button>${userActions}<a class="adm-pill" href="index.html#v=${d.video_id}" target="_blank">Lihat Video</a></div>
+      <div class="act-box" id="wb-${esc(d.username)}"><input placeholder="Tulis pesan peringatan untuk @${esc(d.username)}..." value="Peringatan Sistem: Komentarmu melanggar pedoman komunitas Zippy."><button class="abtn wn" data-send-warn="${esc(d.username)}">${ic('send', 's')} Kirim Peringatan</button></div>
+    </div>`;
+  }
+  if (r.kind === 'story') {
+    return `<div class="rbox">
+      <div class="row">${av(d)}<div><b>${esc(d.name || d.username)}</b> <span class="mu">@${esc(d.username)} · ${dt(d.created)}</span>${d.text ? `<div>${esc(d.text)}</div>` : ''}</div></div>
+      ${d.kind === 'video' ? `<video class="rmedia" src="${sysVidUrl(d.file)}" controls preload="metadata"></video>` : `<img class="rmedia" src="${SERVER}/uploads/${esc(d.file)}">`}
+      <div class="row"><button class="abtn no" data-dels="${d.id}">${ic('trash', 's')} Hapus Story</button>${userActions}</div>
+      <div class="act-box" id="wb-${esc(d.username)}"><input placeholder="Tulis pesan peringatan untuk @${esc(d.username)}..." value="Peringatan Sistem: Story kamu melanggar pedoman komunitas Zippy."><button class="abtn wn" data-send-warn="${esc(d.username)}">${ic('send', 's')} Kirim Peringatan</button></div>
+    </div>`;
+  }
+  if (r.kind === 'user') {
+    return `<div class="rbox">
+      <div class="row">${av(d)}<div><b>${esc(d.name || d.username)}</b> <span class="mu">@${esc(d.username)}</span><div>${esc(d.bio || '(Tanpa bio)')}</div></div></div>
+      <div class="row">${userActions}<button class="abtn no" data-delu="${esc(d.username)}">${ic('trash', 's')} Hapus Permanen</button><a class="adm-pill" href="index.html#u=${esc(d.username)}" target="_blank">Buka Profil</a></div>
+      <div class="act-box" id="wb-${esc(d.username)}"><input placeholder="Tulis pesan peringatan untuk @${esc(d.username)}..." value="Peringatan Sistem: Harap patuhi pedoman komunitas Zippy."><button class="abtn wn" data-send-warn="${esc(d.username)}">${ic('send', 's')} Kirim Peringatan</button></div>
+    </div>`;
+  }
+  return '';
+}
+
+function userCardHTML(u) {
+  const bdayTxt = calcAgeFromBirthDate(u.birth_date);
+  return `<div class="card" data-u="${esc(u.username)}">
+    <div class="row sp">
+      <div class="row">${av(u)}
+        <div>
+          <div class="row" style="gap:6px">
+            <b>${esc(u.name || u.username)}</b>
+            ${u.verified ? `<span class="tag a">${ic('check', 's b3')} Terverifikasi</span>` : ''}
+            ${u.private ? `<span class="tag">${ic('lock', 's')} Privat</span>` : ''}
+            ${bdayTxt ? `<span class="tag b">${ic('calendar', 's')} ${esc(bdayTxt)}</span>` : ''}
+            ${u.banned ? `<span class="tag r">${ic('ban', 's')} DIBANNED${u.ban_reason ? ': ' + esc(u.ban_reason) : ''}</span>` : ''}
+            ${u.warnings ? `<span class="tag p">${ic('alert', 's')} ${u.warnings} peringatan</span>` : ''}
+          </div>
+          <div class="mu">@${esc(u.username)}${u.email ? ' · ' + esc(u.email) : ''} · ${u.followers} pengikut · ${u.videos || 0} video</div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="abtn g" data-v="${esc(u.username)}" data-on="${u.verified ? 0 : 1}">${ic('star', 's')} ${u.verified ? 'Cabut Centang' : 'Beri Centang'}</button>
+        <button class="abtn wn" data-open-warn="${esc(u.username)}">${ic('alert', 's')} Peringatan</button>
+        <button class="abtn ${u.banned ? 'ok' : 'no'}" data-open-ban="${esc(u.username)}" data-banned="${u.banned ? 1 : 0}">${ic(u.banned ? 'check' : 'ban', 's')} ${u.banned ? 'Buka Banned' : 'Banned'}</button>
+        <button class="abtn g" data-open-pw="${esc(u.username)}" title="Reset Sandi Pengguna">${ic('key', 's')} Sandi</button>
+        <button class="abtn no" data-delu="${esc(u.username)}" title="Hapus Akun">${ic('trash', 's')}</button>
+      </div>
+    </div>
+    <div class="act-box" id="wb-${esc(u.username)}">
+      <b>Kirim Peringatan Sistem ke @${esc(u.username)}</b>
+      <div class="row"><input placeholder="Tulis pesan peringatan (muncul di Notifikasi pengguna)..." value="Peringatan Sistem: Akun atau kontenmu dilaporkan melanggar pedoman komunitas Zippy." style="flex:1"><button class="abtn wn" data-send-warn="${esc(u.username)}">${ic('send', 's')} Kirim Sekarang</button></div>
+    </div>
+    <div class="act-box" id="bb-${esc(u.username)}">
+      <b>Blokir / Banned Akun @${esc(u.username)}</b>
+      <div class="row"><input placeholder="Alasan banned (opsional, mis. Spam / Melanggar aturan)..." value="${esc(u.ban_reason || 'Melanggar pedoman komunitas Zippy')}" style="flex:1"><button class="abtn no" data-confirm-ban="${esc(u.username)}">${ic('ban', 's')} Konfirmasi Banned</button></div>
+    </div>
+    <div class="act-box" id="pb-${esc(u.username)}">
+      <b>Reset Sandi untuk @${esc(u.username)}</b>
+      <div class="row"><input type="text" placeholder="Masukkan sandi baru (minimal 6 karakter)..." style="flex:1"><button class="abtn ok" data-send-pw="${esc(u.username)}">${ic('check', 's b3')} Simpan Sandi Baru</button></div>
+    </div>
+  </div>`;
+}
+
+async function fetchModerationData(flt = modFilter, q = '') {
+  try {
+    return await api(`/moderation?filter=${encodeURIComponent(flt)}&q=${encodeURIComponent(q)}`);
+  } catch (e) {
+    const vd = await api(`/videos?q=${encodeURIComponent(q)}`);
+    const analyzed = (vd.videos || []).map(v => ({ ...v, mod: clientAnalyzeVideo(v) }));
+    return {
+      summary: {
+        total: analyzed.length,
+        violation: analyzed.filter(x => x.mod.level === 'violation').length,
+        warning: analyzed.filter(x => x.mod.level === 'warning').length,
+        blocked: analyzed.filter(x => x.mod.mod_status === 'blocked').length,
+        appealed: analyzed.filter(x => x.appeal && x.appeal.status === 'pending').length,
+        safe: analyzed.filter(x => x.mod.level === 'safe').length
+      },
+      customWords: [],
+      autoBlockScore: 85,
+      categories: LOCAL_MOD_RULES.map(r => ({ label: r[0] })),
+      videos: analyzed
+    };
+  }
+}
+
+async function load() {
+  const box = $('#box'); box.innerHTML = '<p class="mu">Memuat data sistem...</p>';
+  try {
+    if (tab === 'moderation') {
+      const d = await fetchModerationData(modFilter, '');
+      const sm = d.summary || { total: 0, violation: 0, warning: 0, blocked: 0, appealed: 0, safe: 0 };
+      box.innerHTML = `
+        <div class="mod-hero">
+          <div class="row sp">
+            <div>
+              <h3 style="display:flex;align-items:center;gap:8px">${ic('shield', 's')} Pusat Moderasi & Deteksi Pedoman Sistem</h3>
+              <p class="mu" style="font-size:13px;margin-top:2px">Sistem memindai isi video (frame visual), nama file, caption, audio, tautan mencurigakan, komentar, serta pengajuan banding kreator.</p>
+            </div>
+            <div class="row">
+              <button type="button" class="abtn" id="mod-scan-btn">${ic('refresh', 's')} Pindai Semua Video</button>
+              <button type="button" class="abtn g" id="mod-rules-tg">${ic('gear', 's')} Atur Pedoman & Kata Terlarang</button>
+            </div>
+          </div>
+
+          <div class="mod-sum-pills" id="mod-sum-pills">
+            <div class="mod-s-pill" data-mf="all"><div><small>Total Video</small><div><b>${sm.total}</b></div></div><span class="tag">${ic('video', 's')}</span></div>
+            <div class="mod-s-pill" data-mf="appealed"><div><small>Banding Masuk</small><div><b style="color:#f59e0b">${sm.appealed || 0}</b></div></div><span class="tag p">Banding</span></div>
+            <div class="mod-s-pill" data-mf="violation"><div><small>Terdeteksi Melanggar</small><div><b style="color:#ef4444">${sm.violation}</b></div></div><span class="tag r">Risiko Tinggi</span></div>
+            <div class="mod-s-pill" data-mf="warning"><div><small>Perlu Ditinjau</small><div><b style="color:#f59e0b">${sm.warning}</b></div></div><span class="tag p">Waspada</span></div>
+            <div class="mod-s-pill" data-mf="blocked"><div><small>Ditakedown</small><div><b style="color:#ef4444">${sm.blocked}</b></div></div><span class="tag r">Takedown</span></div>
+            <div class="mod-s-pill" data-mf="safe"><div><small>Aman & Lolos</small><div><b style="color:#10b981">${sm.safe}</b></div></div><span class="tag a">Aman</span></div>
+          </div>
+
+          <div class="act-box" id="mod-rules-box">
+            <b>Pengaturan Aturan Deteksi & Kata Terlarang Sistem</b>
+            <p class="mu" style="font-size:12px">Kategori bawaan aktif: ${(d.categories || []).map(c => `<b>${esc(c.label)}</b>`).join(' · ')}</p>
+            <label style="font-size:12.5px;font-weight:700">Kata / Frasa Terlarang Tambahan (pisahkan dengan koma)
+              <input id="mod-cw" value="${esc((d.customWords || []).join(', '))}" placeholder="Contoh: judi slot, open bo, link phising, penipuan..." style="margin-top:5px">
+            </label>
+            <div class="row">
+              <label style="font-size:12.5px;font-weight:700;flex:1;min-width:180px">Ambang Skor Auto-Takedown Saat Upload (50% – 100%)
+                <input id="mod-ab" type="number" min="50" max="100" value="${d.autoBlockScore || 85}" style="margin-top:5px">
+              </label>
+              <label style="font-size:12.5px;font-weight:700;flex:1;min-width:180px">Sensitivitas Deteksi Visual
+                <select id="mod-vm" style="margin-top:5px">${(d.visualModes || []).map(m => `<option value="${m.id}"${m.id === d.visualMode ? ' selected' : ''}>${esc(m.label)}</option>`).join('')}</select>
+              </label>
+            </div>
+            ${d.ffmpeg === false ? `<p class="vz-warn">${ic('alert', 's')} ffmpeg tidak terpasang di server, jadi deteksi visual nonaktif. Jalankan <code>npm i ffmpeg-static</code> lalu restart server.</p>` : ''}
+            <div class="row"><button type="button" class="abtn ok" id="mod-save-rules">${ic('check', 's b3')} Simpan Aturan Sistem</button></div>
+          </div>
+        </div>
+
+        <div class="adm-toolbar">
+          <label class="adm-search">${ic('search', 's')}<input id="mq" placeholder="Cari video, kode, @username kreator, atau kategori..."></label>
+          <div class="adm-filters" id="mf-bar">
+            ${[['all', ic('video', 's') + ' Semua'], ['appealed', ic('flag', 's') + ' Ada Banding'], ['violation', ic('alert', 's') + ' Melanggar'], ['warning', ic('eye', 's') + ' Perlu Ditinjau'], ['blocked', ic('ban', 's') + ' Ditakedown'], ['safe', ic('check', 's') + ' Aman']].map(([k, t]) => `<button type="button" class="adm-flt${modFilter === k ? ' on' : ''}" data-mf="${k}">${t}</button>`).join('')}
+          </div>
+        </div>
+        <div id="ml">${d.videos.map(modVideoCardHTML).join('') || '<div class="card"><p class="mu">Tidak ada video pada filter moderasi ini.</p></div>'}</div>`;
+
+      $('#mod-rules-tg').onclick = () => $('#mod-rules-box').classList.toggle('open');
+      $('#mod-save-rules').onclick = async () => {
+        try {
+          await api('/moderation/rules', {
+            method: 'POST',
+            json: { customWords: $('#mod-cw').value, autoBlockScore: parseInt($('#mod-ab').value) || 85, visualMode: $('#mod-vm').value }
+          });
+          msg('Aturan pedoman sistem berhasil disimpan');
+          load();
+        } catch (err) { msg(err.message, true) }
+      };
+      $('#mod-scan-btn').onclick = async () => {
+        const b = $('#mod-scan-btn'); b.disabled = true; b.textContent = 'Memindai...';
+        try {
+          const r = await api('/moderation/scan', { method: 'POST' });
+          msg(r.remaining ? `${r.visual_scanned} video dipindai visual, sisa ${r.remaining}. Klik lagi untuk melanjutkan` : `Pemindaian selesai: ${r.scanned} video diperiksa (${r.flagged} perlu tindakan)`);
+          enter(true);
+        } catch {
+          msg('Pemindaian selesai');
+          load();
+        }
+      };
+      const switchModFilter = e => {
+        const b = e.target.closest('[data-mf]'); if (!b) return;
+        modFilter = b.dataset.mf; load();
+      };
+      $('#mf-bar').onclick = switchModFilter;
+      $('#mod-sum-pills').onclick = switchModFilter;
+      let mt;
+      $('#mq').oninput = () => {
+        clearTimeout(mt);
+        mt = setTimeout(async () => {
+          const res = await fetchModerationData(modFilter, $('#mq').value);
+          $('#ml').innerHTML = res.videos.map(modVideoCardHTML).join('') || '<div class="card"><p class="mu">Tidak ada video yang cocok.</p></div>';
+        }, 200);
+      };
+      return;
+    }
+
+    if (tab === 'appeals') {
+      const d = await api(`/appeals?status=${encodeURIComponent(appealFilter)}`);
+      const pendingCnt = (d.items || []).filter(x => x.status === 'pending').length;
+      box.innerHTML = `<div class="adm-toolbar">
+        <label class="adm-search">${ic('search', 's')}<input id="ap-q" placeholder="Cari alasan banding, @username, atau kode video..."></label>
+        <div class="adm-filters" id="apf-bar">
+          ${[['pending', 'Menunggu Keputusan'], ['approved', 'Disetujui (Pulih)'], ['rejected', 'Ditolak'], ['', 'Semua Banding']].map(([k, t]) => `<button type="button" class="adm-flt${appealFilter === k ? ' on' : ''}" data-apf="${k}">${t}</button>`).join('')}
+        </div>
+        ${pendingCnt ? `<button type="button" class="abtn ok" id="ap-approve-all">${ic('check', 's b3')} Terima Semua (${pendingCnt})</button>` : ''}
+      </div>
+      <div id="apl">${(d.items || []).map(appealCardHTML).join('') || '<div class="card"><p class="mu">Belum ada pengajuan banding video pada filter ini.</p></div>'}</div>`;
+
+      $('#apf-bar').onclick = e => {
+        const b = e.target.closest('[data-apf]'); if (!b) return;
+        appealFilter = b.dataset.apf; load();
+      };
+      const apAll = $('#ap-approve-all');
+      if (apAll) apAll.onclick = async () => {
+        apAll.disabled = true;
+        try {
+          const r = await api('/appeals/bulk', { method: 'POST', json: { action: 'approve' } });
+          msg(`${r.count} banding disetujui & video dipulihkan`);
+          enter(true);
+        } catch (err) { msg(err.message, true); apAll.disabled = false }
+      };
+      let at;
+      $('#ap-q').oninput = () => {
+        clearTimeout(at);
+        at = setTimeout(async () => {
+          const res = await api(`/appeals?status=${encodeURIComponent(appealFilter)}&q=${encodeURIComponent($('#ap-q').value)}`);
+          $('#apl').innerHTML = (res.items || []).map(appealCardHTML).join('') || '<div class="card"><p class="mu">Tidak ada data banding yang cocok.</p></div>';
+        }, 200);
+      };
+      return;
+    }
+
+    if (tab === 'users') {
+      box.innerHTML = `<div class="adm-toolbar">
+        <label class="adm-search">${ic('search', 's')}<input id="q" placeholder="Cari username, nama tampilan, atau email..."></label>
+        <div class="adm-filters" id="uf-bar">
+          ${[['all', 'Semua'], ['verified', 'Centang Biru'], ['banned', 'Dibanned'], ['private', 'Akun Privat'], ['warned', 'Diperingatkan']].map(([k, t]) => `<button type="button" class="adm-flt${uFilter === k ? ' on' : ''}" data-uf="${k}">${t}</button>`).join('')}
+        </div>
+      </div><div id="ul"></div>`;
+      const run = async () => {
+        const d = await api(`/users?q=${encodeURIComponent($('#q').value)}&filter=${encodeURIComponent(uFilter)}`);
+        $('#ul').innerHTML = d.users.map(userCardHTML).join('') || '<div class="card"><p class="mu">Tidak ada akun yang cocok dengan filter ini.</p></div>';
+      };
+      let t; $('#q').oninput = () => { clearTimeout(t); t = setTimeout(run, 220) };
+      $('#uf-bar').onclick = e => {
+        const b = e.target.closest('[data-uf]'); if (!b) return;
+        uFilter = b.dataset.uf;
+        $$('#uf-bar .adm-flt').forEach(x => x.classList.toggle('on', x === b));
+        run();
+      };
+      run(); return;
+    }
+
+    if (tab === 'reports') {
+      const d = await api('/reports?kind=' + encodeURIComponent(rFilter)), lbls = KIND_LBL();
+      box.innerHTML = `<div class="adm-toolbar">
+        <div class="adm-filters" id="rf-bar">
+          ${[['', 'Semua Laporan'], ['video', 'Video'], ['comment', 'Komentar'], ['story', 'Story'], ['user', 'Akun']].map(([k, t]) => `<button type="button" class="adm-flt${rFilter === k ? ' on' : ''}" data-rf="${k}">${t}</button>`).join('')}
+        </div>
+        ${d.reports.length ? `<button type="button" class="abtn g" id="clr-all-rep">${ic('trash', 's')} Bersihkan Semua Laporan</button>` : ''}
+      </div>
+      <div id="rl">${d.reports.map(r => `<div class="card">
+        <div class="row sp">
+          <b>${lbls[r.kind] || esc(r.kind.toUpperCase())} <span class="mu">#${esc(r.target)}</span></b>
+          <div class="row"><span class="tag r">${ic('flag', 's')} Alasan: ${esc(r.reason)}</span><button class="abtn g" data-delr="${r.id}">${ic('check', 's')} Tandai Selesai</button></div>
+        </div>
+        <div class="mu">Dilaporkan oleh <b>@${esc(r.reporter_name)}</b> · ${dt(r.created)}</div>
+        ${r.note ? `<div>Catatan pelapor: <i>“${esc(r.note)}”</i></div>` : ''}
+        ${reportDetailHTML(r)}
+      </div>`).join('') || '<div class="card"><p class="mu">Tidak ada laporan masuk pada kategori ini.</p></div>'}</div>`;
+      $('#rf-bar').onclick = e => {
+        const b = e.target.closest('[data-rf]'); if (!b) return;
+        rFilter = b.dataset.rf; load();
+      };
+      const clrBtn = $('#clr-all-rep');
+      if (clrBtn) clrBtn.onclick = async () => {
+        try { await api('/reports', { method: 'DELETE' }); msg('Semua laporan dibersihkan'); enter(true) } catch (err) { msg(err.message, true) }
+      };
+      return;
+    }
+
+    if (tab === 'videos') {
+      box.innerHTML = `<div class="adm-toolbar">
+        <label class="adm-search">${ic('search', 's')}<input id="vq" placeholder="Cari keterangan, kode video, atau @username pembuat..."></label>
+        <div class="adm-filters" id="vf-bar">
+          ${[['', 'Semua'], ['public', 'Publik'], ['friends', 'Teman'], ['private', 'Privat'], ['blocked', 'Ditakedown'], ['appealed', 'Ada Banding']].map(([k, t]) => `<button type="button" class="adm-flt${vFilter === k ? ' on' : ''}" data-vf="${k}">${t}</button>`).join('')}
+        </div>
+      </div><div id="vl" class="vgrid-adm"></div>`;
+      const runV = async () => {
+        const isPriv = ['public', 'friends', 'private'].includes(vFilter);
+        const d = await api(`/videos?q=${encodeURIComponent($('#vq').value)}&privacy=${isPriv ? vFilter : ''}&filter=${!isPriv ? vFilter : ''}`);
+        $('#vl').innerHTML = d.videos.map(v => {
+          const isBlocked = v.mod_status === 'blocked';
+          return `<div class="vcard-adm">
+          <div>
+            <div class="row sp" style="margin-bottom:8px">
+              <div class="row">${av(v)}<div><b>@${esc(v.username)}</b><div class="mu" style="font-size:11.5px">${dt(v.created)} · ${esc(v.code || v.id)}</div></div></div>
+              <div class="row">${modBadgeHTML(clientAnalyzeVideo(v), v.appeal)}</div>
+            </div>
+            <video src="${sysVidUrl(v.file)}" controls preload="metadata"></video>
+            <div style="margin-top:8px;font-size:13.5px">${esc(v.caption || '(Tanpa keterangan)')}</div>
+            ${v.appeal && v.appeal.status === 'pending' ? `<div style="margin-top:6px;padding:8px 10px;border-radius:10px;background:#f59e0b22;font-size:12px"><b>Banding:</b> “${esc(v.appeal.reason)}”</div>` : ''}
+            <div class="mu" style="font-size:12px;margin-top:4px">${ic('eye', 's')} ${v.views || 0} · ${ic('heart', 's')} ${v.likes || 0} · ${ic('msg', 's')} ${v.comments || 0} · ${ic('repeat', 's')} ${v.reposts || 0}</div>
+          </div>
+          <div class="row sp" style="padding-top:8px;border-top:1px solid var(--ln)">
+            <select data-vpriv="${v.id}" style="width:auto;padding:6px 10px;border-radius:10px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);font-weight:700;font-size:12px">
+              <option value="public" ${v.privacy === 'public' ? 'selected' : ''}>Publik</option>
+              <option value="friends" ${v.privacy === 'friends' ? 'selected' : ''}>Teman</option>
+              <option value="private" ${v.privacy === 'private' ? 'selected' : ''}>Privat</option>
+            </select>
+            <div class="row">
+              ${isBlocked
+                ? `<button class="abtn ok" data-mod-act="unblock" data-id="${v.id}" data-u="${esc(v.username)}" title="Pulihkan ke Publik">${ic('check', 's')} Pulihkan</button>`
+                : `<button class="abtn wn" data-mod-act="block" data-id="${v.id}" data-u="${esc(v.username)}" title="Takedown Video">${ic('ban', 's')} Takedown</button>`}
+              <button class="abtn no" data-delv="${v.id}" title="Hapus Permanen">${ic('trash', 's')}</button>
+            </div>
+          </div>
+        </div>`;
+        }).join('') || '<div class="card" style="grid-column:1/-1"><p class="mu">Belum ada video yang cocok.</p></div>';
+      };
+      let t; $('#vq').oninput = () => { clearTimeout(t); t = setTimeout(runV, 220) };
+      $('#vf-bar').onclick = e => {
+        const b = e.target.closest('[data-vf]'); if (!b) return;
+        vFilter = b.dataset.vf;
+        $$('#vf-bar .adm-flt').forEach(x => x.classList.toggle('on', x === b));
+        runV();
+      };
+      runV(); return;
+    }
+
+    if (tab === 'stories') {
+      box.innerHTML = `<div class="adm-toolbar">
+        <label class="adm-search">${ic('search', 's')}<input id="sq" placeholder="Cari teks story atau username..."></label>
+      </div><div id="sl" class="vgrid-adm"></div>`;
+      const runS = async () => {
+        const d = await api('/stories?q=' + encodeURIComponent($('#sq').value));
+        $('#sl').innerHTML = d.stories.map(s => `<div class="vcard-adm">
+          <div>
+            <div class="row sp" style="margin-bottom:8px">
+              <div class="row">${av(s)}<div><b>@${esc(s.username)}</b><div class="mu" style="font-size:11.5px">${dt(s.created)}</div></div></div>
+              <span class="tag ${s.active ? 'a' : ''}">${s.active ? 'Aktif 24j' : 'Arsip'}</span>
+            </div>
+            ${s.kind === 'video' ? `<video src="${sysVidUrl(s.file)}" controls preload="metadata"></video>` : `<img src="${SERVER}/uploads/${esc(s.file)}" loading="lazy">`}
+            ${s.text ? `<div style="margin-top:8px;font-size:13.5px">${esc(s.text)}</div>` : ''}
+            <div class="mu" style="font-size:12px;margin-top:4px">${ic('eye', 's')} ${s.views || 0} penonton</div>
+          </div>
+          <div class="row sp" style="padding-top:8px;border-top:1px solid var(--ln)">
+            <span class="mu" style="font-size:12px">Story #${s.id}</span>
+            <button class="abtn no" data-dels="${s.id}">${ic('trash', 's')} Hapus Story</button>
+          </div>
+        </div>`).join('') || '<div class="card" style="grid-column:1/-1"><p class="mu">Belum ada story.</p></div>';
+      };
+      let t; $('#sq').oninput = () => { clearTimeout(t); t = setTimeout(runS, 220) };
+      runS(); return;
+    }
+
+    if (tab === 'broadcast') {
+      box.innerHTML = `<div class="card">
+        <h3>${ic('megaphone', 's')} Kirim Siaran / Pengumuman Resmi Sistem</h3>
+        <p class="mu" style="margin-top:-6px">Kirim notifikasi pengumuman resmi dari Sistem Zippy ke seluruh pengguna aktif atau ke satu akun tertentu secara realtime.</p>
+        <form id="bc-form" class="col">
+          <label>Target Penerima
+            <input id="bc-target" value="all" placeholder="Ketik 'all' untuk semua pengguna, atau @username tertentu" style="margin-top:6px">
+          </label>
+          <label>Isi Pengumuman
+            <textarea id="bc-msg" rows="4" maxlength="400" placeholder="Tulis isi pengumuman resmi Sistem Zippy..." required style="margin-top:6px"></textarea>
+          </label>
+          <button class="btn" id="bc-btn" style="width:fit-content">${ic('send', 's')} Kirim Pengumuman Sekarang</button>
+        </form>
+      </div>`;
+      $('#bc-form').onsubmit = async e => {
+        e.preventDefault();
+        const btn = $('#bc-btn'); btn.disabled = true;
+        try {
+          const r = await api('/broadcast', { method: 'POST', json: { target: $('#bc-target').value.trim(), message: $('#bc-msg').value.trim() } });
+          $('#bc-msg').value = '';
+          msg(`Pengumuman berhasil dikirim ke ${r.sent} pengguna`);
+        } catch (err) { msg(err.message, true) }
+        btn.disabled = false;
+      };
+      return;
+    }
+
+    if (tab === 'verif') {
+      const d = await api('/verifications?status=' + encodeURIComponent(verifFilter));
+      const pendingCnt = (d.items || []).filter(x => x.status === 'pending').length;
+      box.innerHTML = `<div class="adm-toolbar">
+        <div class="adm-filters" id="vrf-bar">
+          ${[['pending', 'Menunggu Keputusan'], ['approved', 'Disetujui'], ['rejected', 'Ditolak']].map(([k, t]) => `<button type="button" class="adm-flt${verifFilter === k ? ' on' : ''}" data-vrf="${k}">${t}</button>`).join('')}
+        </div>
+        ${pendingCnt ? `<button type="button" class="abtn ok" id="vrf-approve-all">${ic('check', 's b3')} Setujui Semua (${pendingCnt})</button>` : ''}
+      </div>` + (d.items.map(i => `<div class="card" data-id="${i.id}">
+        <div class="row sp">
+          <div class="row">${av(i)}<div><b>${esc(i.name || i.username)}</b><div class="mu">@${esc(i.username)} · ${i.followers} pengikut · ${i.videos} video</div></div></div>
+          <span class="tag ${i.status[0]}">${i.status}</span>
+        </div>
+        <div>${esc(i.reason)}</div>
+        ${i.link ? `<a href="${esc(i.link)}" target="_blank" rel="noopener noreferrer" style="color:var(--ac);font-weight:700">${esc(i.link)}</a>` : ''}
+        <div class="mu">Diajukan ${dt(i.created)}${i.decided ? ' · diputuskan ' + dt(i.decided) : ''}${i.note ? ' · catatan: ' + esc(i.note) : ''}</div>
+        ${i.status === 'pending' ? `<textarea rows="2" placeholder="Catatan sistem untuk pengguna (opsional, dipakai saat menolak)"></textarea><div class="row"><button class="abtn ok" data-a="approve">${ic('check', 's')} Setujui Centang Biru</button><button class="abtn no" data-a="reject">${ic('close', 's')} Tolak</button></div>` : ''}
+      </div>`).join('') || '<div class="card"><p class="mu">Tidak ada pengajuan pada tab ini.</p></div>');
+      $('#vrf-bar').onclick = e => {
+        const b = e.target.closest('[data-vrf]'); if (!b) return;
+        verifFilter = b.dataset.vrf; load();
+      };
+      const vrfAll = $('#vrf-approve-all');
+      if (vrfAll) vrfAll.onclick = async () => {
+        vrfAll.disabled = true;
+        try {
+          const r = await api('/verifications/bulk', { method: 'POST', json: { action: 'approve' } });
+          msg(`${r.count} pengajuan centang biru disetujui`);
+          enter(true);
+        } catch (err) { msg(err.message, true); vrfAll.disabled = false }
+      };
+      return;
+    }
+  } catch (e) { box.innerHTML = '<div class="card"><p style="color:var(--dng)">' + esc(e.message) + '</p></div>' }
+}
+
+$('#box').onchange = async e => {
+  const vp = e.target.closest('[data-vpriv]');
+  if (vp) {
+    try {
+      await api('/videos/' + vp.dataset.vpriv + '/privacy', { method: 'PUT', json: { privacy: vp.value } });
+      msg('Privasi video diperbarui ke ' + vp.value);
+    } catch (err) { msg(err.message, true) }
+  }
+};
+
+$('#box').onclick = async e => {
+  // Tombol Terima / Tolak Banding
+  const apBtn = e.target.closest('[data-ap-act]');
+  if (apBtn) {
+    const apid = apBtn.dataset.apid, act = apBtn.dataset.apAct;
+    const apBox = apBtn.closest('[data-ap-box]'), noteInp = apBox && apBox.querySelector('.ap-note-inp');
+    apBtn.disabled = true;
+    try {
+      await api('/appeals/' + apid, { method: 'POST', json: { action: act, note: noteInp ? noteInp.value : '' } });
+      msg(act === 'approve' ? 'Banding diterima & video dipulihkan ke publik!' : 'Banding ditolak');
+      await enter(true);
+    } catch (err) { msg(err.message, true); apBtn.disabled = false }
+    return;
+  }
+
+  const ma = e.target.closest('[data-mod-act]');
+  if (ma) {
+    const vid = ma.dataset.id, act = ma.dataset.modAct, u = ma.dataset.u;
+    ma.disabled = true;
+    try {
+      await api('/moderation/videos/' + vid, { method: 'POST', json: { action: act } });
+      msg(act === 'approve' ? 'Video #' + vid + ' ditandai Aman' : act === 'warn' ? 'Peringatan pedoman komunitas dikirim ke kreator' : act === 'block' ? 'Video #' + vid + ' ditakedown dari publik' : act === 'rescan' ? 'Pemindaian visual video #' + vid + ' selesai' : 'Video dipulihkan ke publik');
+      await enter(true);
+    } catch (err) {
+      if (act === 'rescan') { msg(err.message || 'Pemindaian visual gagal', true); ma.disabled = false; return }
+      if (act === 'warn' && u) {
+        try { await api('/users/' + encodeURIComponent(u) + '/warn', { method: 'POST', json: { message: 'Peringatan Pedoman Komunitas: Videomu #' + vid + ' melanggar kebijakan komunitas Zippy.' } }); msg('Peringatan dikirim ke @' + u) } catch {}
+      }
+      await enter(true);
+    }
+    return;
+  }
+  const ow = e.target.closest('[data-open-warn]');
+  if (ow) {
+    const el = document.getElementById('wb-' + ow.dataset.openWarn);
+    if (el) el.classList.toggle('open');
+    return;
+  }
+  const sw = e.target.closest('[data-send-warn]');
+  if (sw) {
+    const u = sw.dataset.sendWarn, box = sw.closest('.act-box'), inp = box && box.querySelector('input');
+    sw.disabled = true;
+    try { await api('/users/' + encodeURIComponent(u) + '/warn', { method: 'POST', json: { message: inp ? inp.value : '' } }); msg('Peringatan terkirim ke @' + u); await enter(true) }
+    catch (x) { msg(x.message, true); sw.disabled = false }
+    return;
+  }
+  const opw = e.target.closest('[data-open-pw]');
+  if (opw) {
+    const el = document.getElementById('pb-' + opw.dataset.openPw);
+    if (el) el.classList.toggle('open');
+    return;
+  }
+  const spw = e.target.closest('[data-send-pw]');
+  if (spw) {
+    const u = spw.dataset.sendPw, box = spw.closest('.act-box'), inp = box && box.querySelector('input');
+    spw.disabled = true;
+    try { await api('/users/' + encodeURIComponent(u) + '/password', { method: 'POST', json: { password: inp ? inp.value : '' } }); msg('Sandi @' + u + ' berhasil direset'); if (box) box.classList.remove('open') }
+    catch (x) { msg(x.message, true) }
+    spw.disabled = false;
+    return;
+  }
+  const ob = e.target.closest('[data-open-ban]');
+  if (ob) {
+    const u = ob.dataset.openBan;
+    if (ob.dataset.banned === '1') {
+      try { await api('/users/' + encodeURIComponent(u) + '/ban', { method: 'POST', json: { banned: false } }); msg('Banned @' + u + ' dibuka'); await enter(true) }
+      catch (x) { msg(x.message, true) }
+      return;
+    }
+    const el = document.getElementById('bb-' + u);
+    if (el) el.classList.toggle('open');
+    return;
+  }
+  const cb = e.target.closest('[data-confirm-ban]');
+  if (cb) {
+    const u = cb.dataset.confirmBan, box = cb.closest('.act-box'), inp = box && box.querySelector('input');
+    cb.disabled = true;
+    try { await api('/users/' + encodeURIComponent(u) + '/ban', { method: 'POST', json: { banned: true, reason: inp ? inp.value : '' } }); msg('Akun @' + u + ' berhasil dibanned'); await enter(true) }
+    catch (x) { msg(x.message, true); cb.disabled = false }
+    return;
+  }
+  const rb = e.target.closest('[data-ban]');
+  if (rb) {
+    const u = rb.dataset.ban, on = rb.dataset.on === '1';
+    try { await api('/users/' + encodeURIComponent(u) + '/ban', { method: 'POST', json: { banned: on, reason: 'Melanggar pedoman komunitas Zippy' } }); msg(on ? 'Akun @' + u + ' dibanned' : 'Banned dibuka'); await enter(true) }
+    catch (x) { msg(x.message, true) }
+    return;
+  }
+  const v = e.target.closest('[data-v]');
+  if (v) { try { await api('/users/' + encodeURIComponent(v.dataset.v) + '/verified', { method: 'POST', json: { on: v.dataset.on === '1' } }); msg('Status centang diperbarui'); await enter(true) } catch (x) { msg(x.message, true) } return }
+  const du = e.target.closest('[data-delu]');
+  if (du) { try { await api('/users/' + encodeURIComponent(du.dataset.delu), { method: 'DELETE' }); msg('Akun dihapus'); await enter(true) } catch (x) { msg(x.message, true) } return }
+  const dv = e.target.closest('[data-delv]');
+  if (dv) { try { await api('/videos/' + dv.dataset.delv, { method: 'DELETE' }); msg('Video dihapus'); await enter(true) } catch (x) { msg(x.message, true) } return }
+  const dc = e.target.closest('[data-delc]');
+  if (dc) { try { await api('/comments/' + dc.dataset.delc, { method: 'DELETE' }); msg('Komentar dihapus'); await enter(true) } catch (x) { msg(x.message, true) } return }
+  const ds = e.target.closest('[data-dels]');
+  if (ds) { try { await api('/stories/' + ds.dataset.dels, { method: 'DELETE' }); msg('Story dihapus'); await enter(true) } catch (x) { msg(x.message, true) } return }
+  const dr = e.target.closest('[data-delr]');
+  if (dr) { try { await api('/reports/' + dr.dataset.delr, { method: 'DELETE' }); msg('Laporan diselesaikan'); await enter(true) } catch (x) { msg(x.message, true) } return }
+  const b = e.target.closest('[data-a]'); if (!b) return;
+  const c = b.closest('.card'); b.disabled = true;
+  try { await api('/verifications/' + c.dataset.id, { method: 'POST', json: { action: b.dataset.a, note: c.querySelector('textarea').value } }); msg('Keputusan disimpan'); await enter(true) } catch (x) { msg(x.message, true); b.disabled = false }
+};
+
+enter(false);
+</script></body></html>
